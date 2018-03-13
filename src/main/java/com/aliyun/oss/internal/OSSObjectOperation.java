@@ -786,6 +786,7 @@ public class OSSObjectOperation extends OSSOperation {
             }
 
             try {
+                metadata.setContentLength(Long.valueOf(String.valueOf(originalInputStream.available())));
                 repeatableInputStream = newRepeatableInputStream(originalInputStream);
             } catch (IOException ex) {
                 logException("Cannot wrap to repeatable input stream: ", ex);
